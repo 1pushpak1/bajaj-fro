@@ -1,16 +1,15 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import './App.css'; // Add this line to import CSS
 
 function App() {
   const [input, setInput] = useState('{"data":["M","1","334","4","B"]}');
   const [response, setResponse] = useState(null);
-  const [filters, setFilters] = useState(['Numbers', 'Highest Alphabet']);
+  const [filters, setFilters] = useState(['Numbers', 'Highest Alphabet', 'Alphabets']);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Set the page title to your roll number
     document.title = "RA2111003030345";
   }, []);
 
@@ -40,46 +39,54 @@ function App() {
 
   return (
     <div className="App">
-      <div className="input-container">
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder='{"data":["M","1","334","4","B"]}'
-        />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
+      <div className="container">
+        <h1>Data Filter Application</h1>
+        <div className="input-container">
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder='{"data":["M","1","334","4","B"]}'
+            className="json-input"
+          />
+          <button onClick={handleSubmit} className="submit-button">Submit</button>
+        </div>
 
-      {error && <div className="error">{error}</div>}
+        {error && <div className="error">{error}</div>}
 
-      {response && (
-        <div className="response-container">
-          <div className="multi-filter">
-            <span>Multi Filter</span>
-            <div className="filter-options">
-              {['Numbers', 'Highest Alphabet'].map(filter => (
-                <label key={filter}>
-                  <input 
-                    type="checkbox" 
-                    checked={filters.includes(filter)}
-                    onChange={() => handleFilterChange(filter)}
-                  />
-                  {filter}
-                </label>
-              ))}
+        {response && (
+          <div className="response-container">
+            <div className="multi-filter">
+              <span>Multi Filter</span>
+              <div className="filter-options">
+                {['Numbers', 'Alphabets', 'Highest Alphabet'].map(filter => (
+                  <label key={filter} className="filter-label">
+                    <input 
+                      type="checkbox" 
+                      checked={filters.includes(filter)}
+                      onChange={() => handleFilterChange(filter)}
+                      className="filter-checkbox"
+                    />
+                    {filter}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="filtered-response">
+              <h3>Filtered Response</h3>
+              {filters.includes('Numbers') && (
+                <p>Numbers: {response.numbers.join(', ')}</p>
+              )}
+              {filters.includes('Alphabets') && (
+                <p>Alphabets: {response.alphabets.join(', ')}</p>
+              )}
+              {filters.includes('Highest Alphabet') && (
+                <p>Highest Alphabet: {response.highest_alphabet.join(', ')}</p>
+              )}
             </div>
           </div>
-
-          <div className="filtered-response">
-            <h3>Filtered Response</h3>
-            {filters.includes('Numbers') && (
-              <p>Numbers: {response.numbers.join(', ')}</p>
-            )}
-            {filters.includes('Highest Alphabet') && (
-              <p>Highest Alphabet: {response.highest_alphabet.join(', ')}</p>
-            )}
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
