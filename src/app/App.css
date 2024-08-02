@@ -1,6 +1,6 @@
 .App {
     font-family: Arial, sans-serif;
-    padding: 200px;
+    padding: 250px;
     background-color: #ffffff; /* Set background color to white */
     min-height: 10vh; /* Ensure it covers the full viewport height */
     display: flex;
