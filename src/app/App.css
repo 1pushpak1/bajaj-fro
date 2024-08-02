@@ -1,9 +1,13 @@
 .App {
     font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 200px;
+    background-color: #ffffff; /* Set background color to white */
+    min-height: 10vh; /* Ensure it covers the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+  
   
   .container {
     background-color: #f7f7f7;
@@ -28,6 +32,7 @@
     border-radius: 4px;
     border: 1px solid #ccc;
     font-family: monospace;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
   }
   
   .submit-button {
@@ -40,6 +45,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
   }
   
   .submit-button:hover {

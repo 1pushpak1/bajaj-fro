@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // Add this line to import CSS
+import './App.css';
 
 function App() {
   const [input, setInput] = useState('{"data":["M","1","334","4","B"]}');
