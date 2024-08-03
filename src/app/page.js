@@ -61,14 +61,14 @@ function App() {
         {response && (
           <div className="response-container">
             <div className="multi-filter">
-              <div className="input-label">Multi Filter</div>
+              <div className="filter-label">Multi Filter</div>
+              <select onChange={handleFilterChange} className="dropdown">
+                <option value="">Select a filter</option>
+                <option value="Numbers">Numbers</option>
+                <option value="Alphabets">Alphabets</option>
+                <option value="Highest Alphabet">Highest Alphabet</option>
+              </select>
               <div className="filter-bar">
-                <select onChange={handleFilterChange} className="dropdown">
-                  <option value="">Select a filter</option>
-                  <option value="Numbers">Numbers</option>
-                  <option value="Alphabets">Alphabets</option>
-                  <option value="Highest Alphabet">Highest Alphabet</option>
-                </select>
                 {selectedFilters.map(filter => (
                   <div key={filter} className="filter-tag">
                     <span>{filter}</span>

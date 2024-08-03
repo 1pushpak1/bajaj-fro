@@ -80,12 +80,11 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    position: relative;
     background-color: #ffffff;
+    position: relative;
   }
   
   .filter-tag {
@@ -117,10 +116,10 @@ body, html {
     flex-grow: 1;
   }
   
-  .input-label {
+  .input-label, .filter-label {
     position: absolute;
     top: -10px;
-    left: 20px;
+    left: 10px;
     background-color: #f7f7f7;
     padding: 0 5px;
     font-size: 14px;
