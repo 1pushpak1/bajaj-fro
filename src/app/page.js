@@ -69,6 +69,7 @@ function App() {
                 <option value="Highest Alphabet">Highest Alphabet</option>
               </select>
               <div className="filter-bar">
+              <div className="filter-label">Selected Filter</div>
                 {selectedFilters.map(filter => (
                   <div key={filter} className="filter-tag">
                     <span>{filter}</span>
