@@ -12,7 +12,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* Ensure full-page white background */
+    background-color: #ffffff;
   }
   
   .container {
@@ -73,23 +73,31 @@ body, html {
     margin-bottom: 20px;
   }
   
-  .filter-options {
+  .filter-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 20px;
   }
   
-  .filter-label {
+  .filter-tag {
     display: flex;
     align-items: center;
-    gap: 5px;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 20px;
   }
   
-  .filtered-response {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+  .filter-tag span {
+    margin-right: 5px;
+  }
+  
+  .filter-tag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
   }
   
   .dropdown {

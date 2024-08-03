@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [input, setInput] = useState('{"data":["M","1","334","4","B"]}');
   const [response, setResponse] = useState(null);
-  const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedFilters, setSelectedFilters] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,6 +29,18 @@ function App() {
     }
   };
 
+  const handleFilterChange = (e) => {
+    const selectedValue = e.target.value;
+    if (selectedValue && !selectedFilters.includes(selectedValue)) {
+      setSelectedFilters([...selectedFilters, selectedValue]);
+    }
+    e.target.value = '';
+  };
+
+  const removeFilter = (filter) => {
+    setSelectedFilters(selectedFilters.filter(f => f !== filter));
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -49,11 +61,7 @@ function App() {
           <div className="response-container">
             <div className="multi-filter">
               <span>Multi Filter</span>
-              <select 
-                value={selectedFilter}
-                onChange={(e) => setSelectedFilter(e.target.value)}
-                className="dropdown"
-              >
+              <select onChange={handleFilterChange} className="dropdown">
                 <option value="">Select a filter</option>
                 <option value="Numbers">Numbers</option>
                 <option value="Alphabets">Alphabets</option>
@@ -61,15 +69,24 @@ function App() {
               </select>
             </div>
 
+            <div className="filter-bar">
+              {selectedFilters.map(filter => (
+                <div key={filter} className="filter-tag">
+                  <span>{filter}</span>
+                  <button onClick={() => removeFilter(filter)}>×</button>
+                </div>
+              ))}
+            </div>
+
             <div className="filtered-response">
               <h3>Filtered Response</h3>
-              {selectedFilter === 'Numbers' && (
+              {selectedFilters.includes('Numbers') && (
                 <p>Numbers: {response.numbers.join(', ')}</p>
               )}
-              {selectedFilter === 'Alphabets' && (
+              {selectedFilters.includes('Alphabets') && (
                 <p>Alphabets: {response.alphabets.join(', ')}</p>
               )}
-              {selectedFilter === 'Highest Alphabet' && (
+              {selectedFilters.includes('Highest Alphabet') && (
                 <p>Highest Alphabet: {response.highest_alphabet.join(', ')}</p>
               )}
             </div>
