@@ -37,7 +37,7 @@ body, html {
   
   .json-input {
     width: 100%;
-    height: 80px; /* Decreased size */
+    height: 50px; /* Decreased size */
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -85,8 +85,9 @@ body, html {
     border-radius: 4px;
     background-color: #ffffff;
     position: relative;
-    height: 100px; /* Fixed size */
+    height: 50px; /* Adjusted size */
     overflow-y: auto;
+    margin-top: 10px; /* Added margin-top */
   }
   
   .filter-tag {
@@ -113,9 +114,9 @@ body, html {
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Adjusted margin */
     font-size: 16px;
-    flex-grow: 1;
+    width: 100%;
   }
   
   .input-label, .filter-label {
