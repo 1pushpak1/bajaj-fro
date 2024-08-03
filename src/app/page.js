@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [input, setInput] = useState('{"data":["M","1","334","4","B"]}');
   const [response, setResponse] = useState(null);
-  const [filters, setFilters] = useState(['Numbers', 'Highest Alphabet', 'Alphabets']);
+  const [selectedFilter, setSelectedFilter] = useState('');
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,14 +29,6 @@ function App() {
     }
   };
 
-  const handleFilterChange = (filter) => {
-    setFilters(prevFilters => 
-      prevFilters.includes(filter) 
-        ? prevFilters.filter(f => f !== filter) 
-        : [...prevFilters, filter]
-    );
-  };
-
   return (
     <div className="App">
       <div className="container">
@@ -45,7 +37,7 @@ function App() {
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder='{"data":["M","1","334","4","B"]}'
+            placeholder='Enter API input JSON here'
             className="json-input"
           />
           <button onClick={handleSubmit} className="submit-button">Submit</button>
@@ -57,30 +49,27 @@ function App() {
           <div className="response-container">
             <div className="multi-filter">
               <span>Multi Filter</span>
-              <div className="filter-options">
-                {['Numbers', 'Alphabets', 'Highest Alphabet'].map(filter => (
-                  <label key={filter} className="filter-label">
-                    <input 
-                      type="checkbox" 
-                      checked={filters.includes(filter)}
-                      onChange={() => handleFilterChange(filter)}
-                      className="filter-checkbox"
-                    />
-                    {filter}
-                  </label>
-                ))}
-              </div>
+              <select 
+                value={selectedFilter}
+                onChange={(e) => setSelectedFilter(e.target.value)}
+                className="dropdown"
+              >
+                <option value="">Select a filter</option>
+                <option value="Numbers">Numbers</option>
+                <option value="Alphabets">Alphabets</option>
+                <option value="Highest Alphabet">Highest Alphabet</option>
+              </select>
             </div>
 
             <div className="filtered-response">
               <h3>Filtered Response</h3>
-              {filters.includes('Numbers') && (
+              {selectedFilter === 'Numbers' && (
                 <p>Numbers: {response.numbers.join(', ')}</p>
               )}
-              {filters.includes('Alphabets') && (
+              {selectedFilter === 'Alphabets' && (
                 <p>Alphabets: {response.alphabets.join(', ')}</p>
               )}
-              {filters.includes('Highest Alphabet') && (
+              {selectedFilter === 'Highest Alphabet' && (
                 <p>Highest Alphabet: {response.highest_alphabet.join(', ')}</p>
               )}
             </div>
