@@ -85,9 +85,7 @@ body, html {
     border-radius: 4px;
     background-color: #ffffff;
     position: relative;
-    height: 50px; /* Adjusted size */
-    overflow-y: auto;
-    margin-top: 10px; /* Added margin-top */
+    height: auto; /* Adjusted size */
   }
   
   .filter-tag {

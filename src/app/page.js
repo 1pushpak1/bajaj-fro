@@ -61,6 +61,7 @@ function App() {
         {response && (
           <div className="response-container">
             <div className="multi-filter">
+              <div className="filter-label">Multi Filter</div>
               <select onChange={handleFilterChange} className="dropdown">
                 <option value="">Select a filter</option>
                 <option value="Numbers">Numbers</option>
