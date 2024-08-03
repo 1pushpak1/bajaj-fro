@@ -1,6 +1,6 @@
 .App {
     font-family: Arial, sans-serif;
-    padding: 250px;
+    padding: 10px;
     background-color: #ffffff; /* Set background color to white */
     min-height: 10vh; /* Ensure it covers the full viewport height */
     display: flex;
@@ -10,8 +10,8 @@
   
   
   .container {
-    background-color: #f7f7f7;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
