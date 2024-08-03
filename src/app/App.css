@@ -80,13 +80,14 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #ffffff;
     font-size: 16px;
     position: relative;
-    height: 50px; /* Adjusted size */
+    height: 70px; /* Adjusted size */
   }
   
   .filter-tag {
