@@ -46,6 +46,7 @@ function App() {
       <div className="container">
         <h1>Data Filter Application</h1>
         <div className="input-container">
+          <div className="input-label">API Input</div>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -60,22 +61,21 @@ function App() {
         {response && (
           <div className="response-container">
             <div className="multi-filter">
-              <span>Multi Filter</span>
-              <select onChange={handleFilterChange} className="dropdown">
-                <option value="">Select a filter</option>
-                <option value="Numbers">Numbers</option>
-                <option value="Alphabets">Alphabets</option>
-                <option value="Highest Alphabet">Highest Alphabet</option>
-              </select>
-            </div>
-
-            <div className="filter-bar">
-              {selectedFilters.map(filter => (
-                <div key={filter} className="filter-tag">
-                  <span>{filter}</span>
-                  <button onClick={() => removeFilter(filter)}>×</button>
-                </div>
-              ))}
+              <div className="input-label">Multi Filter</div>
+              <div className="filter-bar">
+                <select onChange={handleFilterChange} className="dropdown">
+                  <option value="">Select a filter</option>
+                  <option value="Numbers">Numbers</option>
+                  <option value="Alphabets">Alphabets</option>
+                  <option value="Highest Alphabet">Highest Alphabet</option>
+                </select>
+                {selectedFilters.map(filter => (
+                  <div key={filter} className="filter-tag">
+                    <span>{filter}</span>
+                    <button onClick={() => removeFilter(filter)}>×</button>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="filtered-response">
